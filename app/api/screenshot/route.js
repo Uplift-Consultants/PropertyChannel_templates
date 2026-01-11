@@ -18,7 +18,7 @@ export async function POST(req) {
       // Use your local Fedora path or the Vercel path
       executablePath: isLocal 
         ? '/usr/bin/chromium-browser' // Result of 'which google-chrome'
-        : await chromium.executablePath('https://github.com/Sparticuz/chromium/releases/download/v143.0.4/chromium-v143.0.4-pack.tar'),
+        : await chromium.executablePath('https://github.com/Sparticuz/chromium/releases/download/v143.0.4/chromium-v143.0.4-pack.x64.tar'),
       headless: isLocal ? 'new' : chromium.headless,
     });
 
