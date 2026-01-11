@@ -1,6 +1,6 @@
+import chromium from '@sparticuz/chromium';
 import { NextResponse } from 'next/server';
 import puppeteer from 'puppeteer-core';
-import chromium from '@sparticuz/chromium';
 import { getHtml } from '@/lib/flier.js';
 
 export async function POST(req) {
@@ -10,13 +10,15 @@ export async function POST(req) {
   try {
     const isLocal = process.env.NODE_ENV === 'development';
 
+    chromium.setGraphicsMode = false;
+
     browser = await puppeteer.launch({
       args: isLocal ? ['--no-sandbox', '--disable-setuid-sandbox'] : chromium.args,
       defaultViewport: chromium.defaultViewport,
       // Use your local Fedora path or the Vercel path
       executablePath: isLocal 
         ? '/usr/bin/chromium-browser' // Result of 'which google-chrome'
-        : await chromium.executablePath(),
+        : await chromium.executablePath('/var/task/node_modules/@sparticuz/chromium/bin'),
       headless: isLocal ? 'new' : chromium.headless,
     });
 
