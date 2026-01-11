@@ -4,8 +4,7 @@ import { useState } from 'react';
 
 export default function FlierGenerator({ flierData }) {
   const [loading, setLoading] = useState(false);
-
-  const handleGenerate = async () => {
+const handleGenerate = async () => {
     setLoading(true);
 
     try {
@@ -17,28 +16,29 @@ export default function FlierGenerator({ flierData }) {
 
       if (!response.ok) throw new Error('Failed to generate image');
 
-      // 1. Receive the binary data (the screenshot)
+      // 1. Receive the binary data
       const blob = await response.blob();
       
-      // 2. Create a temporary URL for the image
+      // 2. Create a temporary URL
       const url = window.URL.createObjectURL(blob);
       
-      // 3. Option A: Open in a new tab
-      window.open(url, '_blank');
-
-      // 4. Option B: Force an automatic download
-      /*
+      // 3. Trigger Download
       const link = document.createElement('a');
       link.href = url;
-      link.download = `flier-${Date.now()}.png`;
+      
+      // This uses the filename from the server, or a fallback
+      link.download = `flier-${new Date().getTime()}.png`;
+      
       document.body.appendChild(link);
       link.click();
-      link.remove();
-      */
+      
+      // 4. Cleanup
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url); // Free up memory
       
     } catch (error) {
       console.error(error);
-      alert("Error generating flier");
+      alert("Error generating flier. Please try again.");
     } finally {
       setLoading(false);
     }

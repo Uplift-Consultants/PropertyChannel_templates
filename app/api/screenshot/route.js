@@ -30,10 +30,13 @@ export async function POST(req) {
     const element = await page.$('#capture-target');
     const buffer = await element.screenshot({ type: 'png' });
 
-    return new NextResponse(buffer, {
-        status: 200,
-      headers: { 'Content-Type': 'image/png' },
-      'Content-Disposition': 'attachment; filename="flier.png"'
+return new NextResponse(buffer, {
+      status: 200,
+      headers: { 
+        'Content-Type': 'image/png',
+        'Content-Disposition': 'attachment; filename="flier.png"',
+        'Content-Length': buffer.length.toString(), 
+      },
     });
 
   } catch (error) {
