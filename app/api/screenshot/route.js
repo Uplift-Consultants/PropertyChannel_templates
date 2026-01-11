@@ -1,4 +1,4 @@
-import chromium from '@sparticuz/chromium';
+import chromium from '@sparticuz/chromium-min';
 import { NextResponse } from 'next/server';
 import puppeteer from 'puppeteer-core';
 import { getHtml } from '@/lib/flier.js';
@@ -18,7 +18,7 @@ export async function POST(req) {
       // Use your local Fedora path or the Vercel path
       executablePath: isLocal 
         ? '/usr/bin/chromium-browser' // Result of 'which google-chrome'
-        : await chromium.executablePath('/var/task/node_modules/@sparticuz/chromium/bin'),
+        : await chromium.executablePath('https://github.com/Sparticuz/chromium/releases/download/v143.0.4/chromium-v143.0.4-pack.tar'),
       headless: isLocal ? 'new' : chromium.headless,
     });
 
