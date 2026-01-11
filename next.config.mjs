@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    serverComponentsExternalPackages: ['@sparticuz/chromium'],
+    serverExternalPackages: ['@sparticuz/chromium'],
 };
 
 export default nextConfig;
