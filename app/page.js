@@ -15,14 +15,12 @@ export default function PreviewPage() {
 
   return (
     <>
-    <div className='container'
-      dangerouslySetInnerHTML={{ __html: htmlContent }} 
-    />    
-        <main className="flex flex-col items-center justify-center min-h-screen p-24 bg-gray-50">
-          
-          {/* The trigger button */}
-          <FlierGenerator flierData={eventData} />
-        </main>
+      <header className='header'>
+            <FlierGenerator flierData={eventData} />
+      </header>
+      <div className='container'
+        dangerouslySetInnerHTML={{ __html: htmlContent }} 
+      />    
     </>
 
   );

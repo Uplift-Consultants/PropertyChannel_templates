@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-serverExternalPackages: ["puppeteer-core", "@sparticuz/chromium-min"],
-  turbopack: {
 
+const nextConfig = {
+  serverExternalPackages: ["puppeteer-core", "@sparticuz/chromium-min"],
+  turbopack: {
     rules: {
       '*.svg': {
         loaders: ['@svgr/webpack'],
@@ -11,3 +11,4 @@ serverExternalPackages: ["puppeteer-core", "@sparticuz/chromium-min"],
     }
   }
 };
+export default nextConfig;
