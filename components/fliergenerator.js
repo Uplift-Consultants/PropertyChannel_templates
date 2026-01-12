@@ -48,7 +48,7 @@ const handleGenerate = async () => {
     <button
       onClick={handleGenerate}
       disabled={loading}
-      className={`px-8 py-4 rounded-full font-bold text-white transition-all ${
+      className={`btn primary ${
         loading 
           ? 'bg-gray-400 cursor-not-allowed' 
           : 'bg-indigo-600 hover:bg-indigo-700 active:scale-95 shadow-lg'
