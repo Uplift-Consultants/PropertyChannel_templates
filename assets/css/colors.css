@@ -1,0 +1,17 @@
+/* All Rights Reserved @ Uplift Consultants (Pvt) Ltd */
+/************* Propertylist 2026 **************/
+@charset "UTF-8";
+
+:root {
+    color-scheme: light;  
+    --primary: #5021ff;
+    --secondary: #e74c3c;
+    --light: #f4f7f6;
+    --disabled: #cecece;
+    --white: #ffffff;
+    --btn-primary: var(--primary);   
+    --btn-secondary: var(--secondary);   
+    --btn-text-light: #ffffff;
+    --btn-text-dark: #333333;
+    --text-white: #fff
+  }

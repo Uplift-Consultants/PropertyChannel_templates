@@ -1,7 +1,7 @@
 import chromium from '@sparticuz/chromium-min';
 import { NextResponse } from 'next/server';
 import puppeteer from 'puppeteer-core';
-import { getHtml } from '@/lib/flier.js';
+import { getHtml } from '@lib/flier.js';
 
 export async function POST(req) {
   const data = await req.json();
